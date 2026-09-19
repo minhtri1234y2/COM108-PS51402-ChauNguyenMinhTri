@@ -4,7 +4,7 @@ int main() {
     int a = 5;
     int b = 10;
 
-    printf("Truoc khi hoan vi: a = %d, b = %d\n", a, b);
+    printf("Truoc khi hoan vi: a = %d, b=%d\n", a, b);
 
     a = a + b;
     b = a - b;
@@ -13,4 +13,4 @@ int main() {
     printf("Sau khi hoan vi: a = %d, b = %d\n", a, b);
 
     return 0;
-}
+}    

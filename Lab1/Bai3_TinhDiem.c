@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    char mssv[] = "12345678";
-    char hoTen[] = "Nguyen Van A";
+    char mssv[] = "PS51402";
+    char hoTen[] = "Chau Nguyen Minh Tri";
 
     float toan = 9.0;
     float ly = 8.0;
