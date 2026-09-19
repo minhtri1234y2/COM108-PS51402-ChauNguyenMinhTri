@@ -4,4 +4,4 @@ Video bài 2: https://www.youtube.com/watch?v=D6Z5w8GB94o
 
 Video bài 3: https://www.youtube.com/watch?v=Qw7vR9UpoAM
 
-Video bài 4: 
+Video bài 4: https://www.youtube.com/watch?v=3BhsBTO5GKk
