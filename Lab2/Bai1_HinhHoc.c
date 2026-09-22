@@ -6,10 +6,8 @@ int main()
     float chieurong;
     float chuvi;
     float dientich;
-    printf("Nhap chieu dai: ");
-    scanf("%f", &chieudai);
-    printf("Nhap chieu rong: ");
-    scanf("%f", &chieurong);
+    printf("Nhap chieu dai: "); scanf("%f", &chieudai);
+    printf("Nhap chieu rong: ");scanf("%f", &chieurong);
     chuvi = 2 * (chieudai + chieurong);
     dientich = chieudai * chieurong;
     printf("Chu vi hinh chu nhat: %.2f\n", chuvi);
