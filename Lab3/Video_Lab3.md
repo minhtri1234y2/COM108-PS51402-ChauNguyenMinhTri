@@ -1,0 +1,1 @@
+Video làm bài lab 3: https://www.youtube.com/watch?v=dSiKyoMW41E&t=2672s
