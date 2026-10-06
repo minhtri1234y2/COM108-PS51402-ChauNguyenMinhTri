@@ -1,42 +1,80 @@
 #include <stdio.h>
-void menu();
 
-int main(){
-    int chon;
-    do{
-        menu();
-        printf("Chon chuc nang: ");
-        scanf("%d",&chon);
-        switch (chon)
+void printMenu();
+void ktSoNguyen();
+
+int main()
+{
+    int luaChon;
+
+    do
+    {
+        printMenu();
+        printf("Nhap lua chon: ");
+        scanf("%d", &luaChon);
+
+        switch (luaChon)
         {
         case 0:
-            /* code */
-            printf("Tam biet\n");
+            printf("Tam biet!\n");
             break;
         case 1:
-            /* code */
-            printf("Ban vua chon chuc nang 1\n");
+            printf("Kiem tra so nguyen\n");
+            ktSoNguyen();
             break;
         case 2:
-            /* code */
-            printf("Ban vua chon chuc nang 2\n");
+            printf("Tim UCLN va BCNN cua 2 so\n");
             break;
         case 3:
-            /* code */
-            printf("Ban vua chon chuc nang 3\n");
+            printf("Tinh tien Karaoke\n");
+            break;
+        case 4:
+            printf("Tinh tien dien\n");
+            break;
+        case 5:
+            printf("Doi tien\n");
+            break;
+        case 6:
+            printf("Tinh lai suat vay\n");
+            break;
+        case 7:
+            printf("Vay tien mua xe\n");
+            break;
+        case 8:
+            printf("Sap xep sinh vien\n");
+            break;
+        case 9:
+            printf("Game POLY-LOTT\n");
+            break;
+        case 10:
+            printf("Tinh phan so\n");
             break;
         default:
-            printf("Chuc nang nay chua co\n");
-            break;
+            printf("Lua chon khong hop le!\n");
         }
-    }while(chon !=0 );
-    
+    } while (luaChon != 0);
+
     return 0;
 }
 
-void menu(){
-    printf("Menu\n");
-    printf("Chuc nang 1\n");
-    printf("Chuc nang 2\n");
-    printf("Chuc nang 3\n");
+void printMenu()
+{
+    printf("\n========== MENU ==========\n");
+    printf("0. Thoat\n");
+    printf("1. Kiem tra so nguyen\n");
+    printf("2. UCLN va BCNN\n");
+    printf("3. Tinh tien Karaoke\n");
+    printf("4. Tinh tien dien\n");
+    printf("5. Doi tien\n");
+    printf("6. Tinh lai suat vay\n");
+    printf("7. Vay tien mua xe\n");
+    printf("8. Sap xep sinh vien\n");
+    printf("9. Game POLY-LOTT\n");
+    printf("10. Tinh phan so\n");
+    printf("===========================\n");
+}
+
+void ktSoNguyen()
+{
+    printf("Day la chuc nang kiem tra so nguyen.\n");
 }
