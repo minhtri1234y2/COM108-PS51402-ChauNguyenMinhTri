@@ -1,174 +1,122 @@
 #include <stdio.h>
-#include <string.h>
-void printMenu();
+#include <math.h>
+void hienThiMenu();
 void tinhHocLuc();
-void ptBacHai();
+void giaiPTBacHai();
 void tinhTienDien();
-int main()
-{
-  printMenu();
-  int luaChon;
-  do
-  {
+
+int main() {
+    int luaChon;
+    do {
+        hienThiMenu();
+        scanf("%d", &luaChon);
+
+        switch (luaChon) {
+            case 1:
+                tinhHocLuc();
+                break;
+            case 2:
+                giaiPTBacHai();
+                break;
+            case 3:
+                tinhTienDien();
+                break;
+            case 0:
+                printf("Tam biet\n");
+                break;
+            default:
+                printf("Chua co chua nang lua chon\n");
+                break;
+        }
+        printf("\n");
+    } while (luaChon != 0);
+
+    return 0;
+}
+void hienThiMenu() {
+    printf("===== MENU CHUONG TRINH LAB 3 =====\n");
+    printf("1. Tinh hoc luc sinh vien\n");
+    printf("2. Giai phuong trinh bac hai\n");
+    printf("3. Tinh tien dien tieu thu\n");
+    printf("0. Thoat chuong trinh\n");
     printf("Nhap lua chon cua ban: ");
-    scanf("%d", &luaChon);
-    switch (luaChon)
-    {
-    case 0:
-      printf("Tam biet\n");
-      break;
-    case 1:
-      printf("Tinh hoc luc sinh vien\n");
-      tinhHocLuc();
-      break;
-    case 2:
-      printf("Giai phuong trinh bac hai\n");
-      ptBacHai();
-      break;
-    case 3:
-      printf("Tinh tien dien tieu thu\n");
-      tinhTienDien();
-      break;
-    default:
-      printf("Chua co chua nang lua chon\n");
-      break;
+}
+void tinhHocLuc() {
+    float diem;
+    printf("Nhap vao diem so cua sinh vien: ");
+    scanf("%f", &diem);
+    if (diem < 0.0 || diem > 10.0) {
+        printf("Diem so nhap vao khong hop le!\n");
+    } 
+    else {
+        if (diem >= 9.0) {
+            printf("Hoc luc: Xuat sac\n");
+        } else if (diem >= 8.0) {
+            printf("Hoc luc: Gioi\n");
+        } else if (diem >= 6.5) {
+            printf("Hoc luc: Kha\n");
+        } else if (diem >= 5.0) {
+            printf("Hoc luc: Trung binh\n");
+        } else if (diem >= 3.5) {
+            printf("Hoc luc: Yeu\n");
+        } else {
+            printf("Hoc luc: Kem\n");
+        }
     }
-  } while (luaChon != 0);
-  return 0;
 }
-void printMenu()
-{
-  printf("===== MENU CHUONG TRINH LAB 3 =====\n");
-  printf("1. Tinh hoc luc sinh vien\n");
-  printf("2. Giai phuong trinh bac hai\n");
-  printf("3. Tinh tien dien tieu thu\n");
-  printf("0. Thoat chuong trinh\n");
-}
-void tinhHocLuc()
-{
-  float dtb;
-  do
-  {
-    printf("Nhap diem trung binh: ");
-    scanf("%f", &dtb);
-  } while (dtb < 0 || dtb > 10);
+void giaiPTBacHai() {
+    float a, b, c;
+    printf("Nhap vao 3 he so a, b, c: ");
+    scanf("%f%f%f", &a, &b, &c);
+    if (a == 0) {
+        if (b == 0) {
+            if (c == 0) {
+                printf("Phuong trinh co vo so nghiem.\n");
+            } else {
+                printf("Phuong trinh vo nghiem.\n");
+            }
+        } else {
+            float x = -c / b;
+            printf("Phuong trinh co nghiem duy nhat: x = %.2f\n", x);
+        }
+    } 
+    else {
+        float delta = b * b - 4 * a * c;
 
-  if (dtb >= 9.0)
-  {
-    printf("Hoc luc: Xuat sac\n");
-  }
-  else if (dtb >= 8.0)
-  {
-    printf("Hoc luc: Gioi\n");
-  }
-  else if (dtb >= 6.5)
-  {
-    printf("Hoc luc: Kha\n");
-  }
-  else if (dtb >= 5.0)
-  {
-    printf("Hoc luc: Trung binh\n");
-  }
-  else if (dtb >= 3.5)
-  {
-    printf("Hoc luc: Yeu\n");
-  }
-  else
-  {
-    printf("Hoc luc: Yeu\n");
-  }
+        if (delta < 0) {
+            printf("Phuong trinh vo nghiem.\n");
+        } else if (delta == 0) {
+            float xKip = -b / (2 * a);
+            printf("Phuong trinh co nghiem kep: x = %.2f\n", xKip);
+        } else {
+            float x1 = (-b + sqrt(delta)) / (2 * a);
+            float x2 = (-b - sqrt(delta)) / (2 * a);
+            printf("Phuong trinh co 2 nghiem phan biet: x1 = %.2f, x2 = %.2f\n", x1, x2);
+        }
+    }
 }
-void ptBacHai()
-{
-  int a, b, c, x1, x2, Delta;
-  printf("Nhap vao a, b, c: ");
-  scanf("%f%f%f", a, b, c);
-  if (a == 0)
-  {
-    if (b == 0)
-    {
-      if (c == 0)
-      {
-        printf("Phuong trinh vo so nghiem\n");
-      }
-      else
-      {
-        printf("Phuong trinh vo nghiem\n");
-      }
-    }
-    else
-    {
-      x1 = -c / b;
-      printf("Phuong trinh co nghiem duy nhat: x = %2.f\n", x1);
-    }
-  }
-  else
-  {
-    Delta = b * b - 4 * a * c;
-    if (Delta < 0)
-    {
-      printf("Phuong trinh vo so nghiem\n");
-    }
-    else if (Delta == 0)
-    {
-      printf("Phuong trinh co nghiem kep: x1 = x2 = %.2f\n", Delta);
-    }
-    else
-    {
-      x1 = (-b + sqrt(Delta)) / (2 * a);
-      x2 = (-b - sqrt(Delta)) / (2 * a);
-      printf("Phuong trinh co 2 nghiem phan biet: x1 =  %.2f, x2 = %.2f\n", x1, x2);
-    }
-  }
-}
-void tinhTienDien()
-{
-  /*
-    1. Khai báo cố điện giá tiền ứng theo từng bậc
-    2. Số Kwh kh có lẻ
-    3. float * int -> tự ép kiểu về float
-  */
-  const int MAX50_UNIT = 50;
-  const int MAX100_UNIT = 100;
-  float tongKwh;
-  float tongTienDien = 0;
-  float phanDu = 0;
-  // Đề chưa rõ: Nếu input âm thì cách xử lý?
-  printf("Nhap tong so kwh: ");
-  scanf("%f", &tongKwh);
+void tinhTienDien() {
+    int kwh;
+    float thanhTien = 0;
 
-  // Dùng do while tối ưu hơn.
-  while (tongKwh < 0)
-  {
-    printf("So nhap vao khong hop le - nhap lai:");
-    scanf("%f", &tongKwh);
-  }
-  // 80
-  if (tongKwh >= 0 || tongKwh < 50)
-  {
-    if (tongKwh <= MAX50_UNIT)
-    {
-      tongTienDien = tongKwh * 1.678;
+    printf("Nhap vao tong so kWh dien tieu thu: ");
+    scanf("%d", &kwh);
+    if (kwh <= 0) {
+        printf("So kWh phai la so duong va lon hon 0!\n");
+        return;
     }
-    else
-    {
-      phanDu = tongKwh - (float)MAX50_UNIT;
-      tongKwh -= phanDu;
-      tongTienDien = tongKwh * 1.678;
+    if (kwh <= 50) {
+        thanhTien = kwh * 1.678;
+    } else if (kwh <= 100) {
+        thanhTien = (50 * 1.678) + (kwh - 50) * 1.734;
+} else if (kwh <= 200) {
+        thanhTien = (50 * 1.678) + (50 * 1.734) + (kwh - 100) * 2.014;
+    } else if (kwh <= 300) {
+        thanhTien = (50 * 1.678) + (50 * 1.734) + (100 * 2.014) + (kwh - 200) * 2.536;
+    } else if (kwh <= 400) {
+        thanhTien = (50 * 1.678) + (50 * 1.734) + (100 * 2.014) + (100 * 2.536) + (kwh - 300) * 2.834;
+    } else {
+        thanhTien = (50 * 1.678) + (50 * 1.734) + (100 * 2.014) + (100 * 2.536) + (100 * 2.834) + (kwh - 400) * 2.927;
     }
-  }
-  else if (tongKwh >= 50 || tongKwh <= 100)
-  {
-    phanDu -= (float)MAX50_UNIT;
-    if (phanDu <= MAX50_UNIT)
-    {
-      tongTienDien = phanDu * 1.734;
-    }
-    else
-    {
-    }
-  }
-  printf("tongKwh: %f\n", tongKwh);
-  printf("phanDu: %f\n", phanDu);
-  printf("tongTienDien: %f\n", tongTienDien);
+    printf("Tong tien dien phai tra: %.3f dong\n", thanhTien);
 }
